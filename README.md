@@ -44,3 +44,5 @@ Serve `dist/` at `/repo-name/` to test that build. Vite's preview server serves 
 | **Output tokens** | **44,294** |
 | └ Reasoning output tokens | **13,749** |
 | **Total tokens** | **5,670,974** |
+
+Site: https://kjlkurt.github.io/waterslide-game-gpt-6-sol/
