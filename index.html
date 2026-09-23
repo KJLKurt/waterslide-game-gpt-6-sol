@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#087bbd" />
+  <meta name="description" content="Race thirteen colorful riders down a winding water slide." />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <title>Splashline Racers</title>
+</head>
+<body>
+  <div id="app">
+    <div id="game" aria-label="3D water slide race"></div>
+    <div id="hud" class="hidden">
+      <div class="hud-top">
+        <div class="hud-cell place"><span class="hud-label">PLACE</span><strong id="place">1<span>/13</span></strong></div>
+        <div class="hud-cell"><span class="hud-label">TIME</span><strong id="time">00:00.0</strong></div>
+        <div class="hud-cell progress"><span class="hud-label">COURSE</span><strong id="progress">0%</strong></div>
+        <div class="hud-cell speed"><span class="hud-label">SPEED</span><strong id="speed">0 <small>km/h</small></strong></div>
+        <button id="pause-btn" class="icon-btn" aria-label="Pause game">Ⅱ</button>
+      </div>
+      <div id="progress-track"><div id="progress-fill"></div></div>
+      <div id="checkpoint" class="toast hidden">CHECKPOINT</div>
+      <div id="shortcut-hint" class="hint hidden">STEER RIGHT FOR THE SKYWAY</div>
+      <div id="controls">
+        <div id="joystick" aria-label="Steering joystick"><div id="joystick-knob"></div></div>
+        <button id="jump-btn" aria-label="Jump"><span>↑</span><b>JUMP</b></button>
+      </div>
+    </div>
+    <div id="countdown" class="countdown hidden" aria-live="assertive">3</div>
+    <div id="menu" class="screen">
+      <div class="menu-shell">
+        <div class="eyebrow">SUN • SPEED • SPLASH</div>
+        <h1>SPLASH<span>LINE</span><small>RACERS</small></h1>
+        <p class="tagline">Thirteen riders. One wild ride.</p>
+        <div class="menu-grid">
+          <div class="card character-card">
+            <div class="card-heading">YOUR RIDER <span id="unlock-count">01 / 04</span></div>
+            <div id="palette-options" class="palette-options"></div>
+            <div class="cosmetic-row"><span>ACCESSORY</span><button id="cosmetic-prev" aria-label="Previous accessory">‹</button><strong id="cosmetic-name">Goggles</strong><button id="cosmetic-next" aria-label="Next accessory">›</button></div>
+          </div>
+          <div class="card run-card">
+            <div class="card-heading">RACE SETUP</div>
+            <label class="toggle-line"><span>Practice mode<small>Respawn at checkpoints</small></span><input id="practice-toggle" type="checkbox"><i></i></label>
+            <div class="best-line"><span>BEST FINISH</span><strong id="best-time">—</strong></div>
+          </div>
+        </div>
+        <button id="play-btn" class="primary-btn">RACE THE SLIDE <span>↗</span></button>
+        <button id="settings-open" class="text-btn">Settings & controls</button>
+        <p class="menu-footer">STEER WITH THUMB OR A / D · TAP JUMP OR SPACE</p>
+      </div>
+    </div>
+    <div id="settings" class="screen modal hidden">
+      <div class="modal-card">
+        <button id="settings-close" class="close-btn" aria-label="Close settings">×</button>
+        <div class="eyebrow">MAKE IT YOURS</div><h2>SETTINGS</h2>
+        <label class="setting-row">Graphics quality<select id="graphics"><option value="auto">Auto</option><option value="low">Low</option><option value="high">High</option></select></label>
+        <label class="setting-row">Steering sensitivity<input id="sensitivity" type="range" min="0.5" max="1.8" step="0.1"><output id="sensitivity-value"></output></label>
+        <label class="setting-row">Joystick side<select id="handedness"><option value="left">Left</option><option value="right">Right</option></select></label>
+        <label class="setting-row">Sound effects<input id="audio" type="checkbox"></label>
+        <label class="setting-row">Music<input id="music" type="checkbox"></label>
+        <label class="setting-row">Shadows<input id="shadows" type="checkbox"></label>
+        <label class="setting-row">Postprocessing glow<input id="postprocessing" type="checkbox"></label>
+        <label class="setting-row">Speed & splash effects<input id="vfx" type="checkbox"></label>
+        <p class="settings-tip">Keyboard: A / D or ← / → to steer, Space to jump, P or Esc to pause, F for fullscreen.</p>
+        <button id="settings-done" class="primary-btn">DONE</button>
+      </div>
+    </div>
+    <div id="pause" class="screen modal hidden">
+      <div class="modal-card centered"><div class="eyebrow">TAKE A BREATHER</div><h2>PAUSED</h2><button id="resume-btn" class="primary-btn">RESUME</button><button id="pause-settings" class="text-btn">Settings</button><button id="quit-btn" class="text-btn">Quit to menu</button></div>
+    </div>
+    <div id="result" class="screen modal hidden">
+      <div class="modal-card centered"><div id="result-kicker" class="eyebrow">RACE COMPLETE</div><h2 id="result-title">FINISHED!</h2><p id="result-subtitle"></p><div class="result-stats"><div><span>PLACE</span><strong id="result-place">1 / 13</strong></div><div><span>TIME</span><strong id="result-time">00:00.0</strong></div></div><p id="result-unlock" class="unlock-line"></p><button id="retry-btn" class="primary-btn">RACE AGAIN</button><button id="result-menu" class="text-btn">Back to menu</button></div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
